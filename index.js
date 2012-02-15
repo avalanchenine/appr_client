@@ -5,7 +5,7 @@
     , fs = require('fs')
     , semver = require('semver')
     , request = require('ahr2')
-    , server = "appr.coolaj86.info"
+    , server = "http://appr.coolaj86.info:3000"
     , path = __dirname
     , port = 1337
     , curVer = "0.0.1"
