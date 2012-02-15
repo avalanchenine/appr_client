@@ -15,6 +15,7 @@
   request.get(server + "/version").when(function(err, ahr, data) {
     if(err || data.error == true) {
       console.log('Could not contact update server. Going it alone...');
+      return;
     }
     if(semver.gt(data.result, curVer)) {
       console.log('Server has a new version. Should update now!');
