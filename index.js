@@ -5,14 +5,14 @@
     , fs = require('fs')
     , semver = require('semver')
     , request = require('ahr2')
-    , server = "http://appr.coolaj86.info:3000"
+    , server = "http://109.169.56.223:3000"
     , path = __dirname
     , port = 1337
     , curVer = "0.0.1"
     ;
 
   console.log('Checking for updates...');
-  request.get(server + "/version", function(err, ahr, data) {
+  request.get(server + "/version").when(function(err, ahr, data) {
     if(err || data.error == true) {
       console.log('Could not contact update server. Going it alone...');
     }
