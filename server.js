@@ -9,6 +9,7 @@
     , path = __dirname
     , port = 1337
     , curVer = "0.0.1"
+    , args = process.argv
     ;
 
   console.log('Checking for updates...');
@@ -22,16 +23,16 @@
     }
   });
 
-  if((parseFloat(process.argv[2]) == parseInt(process.argv[2])) && !isNaN(process.argv[2])) {
-    port = process.argv[2];
+  if((parseFloat(args[2]) == parseInt(args[2])) && !isNaN(args[2])) {
+    port = args[2];
   }
 
-  if(typeof process.argv[3] !== 'undefined' && fs.statSync(process.argv[3]).isDirectory()) {
-    if(process.argv[3].substring(0,1) == '/'
-    ||(process.platform === 'win32' && /[A-Z]:/.test(process.argv[3].substring(0,2)))) {
-      path = process.argv[3];
+  if(typeof args[3] !== 'undefined' && fs.statSync(args[3]).isDirectory()) {
+    if(args[3].substring(0,1) == '/'
+    ||(process.platform === 'win32' && /[A-Z]:/.test(args[3].substring(0,2)))) {
+      path = args[3];
     } else {
-      path = __dirname + '/' + process.argv[3];
+      path = __dirname + '/' + args[3];
     }
   }
   
